@@ -1,6 +1,7 @@
 package com.bootcamp.ivallavifahrazi_mealdb.data.database
 
 import androidx.room.TypeConverter
+import com.bootcamp.ivallavifahrazi_mealdb.model.DetailMealsItem
 import com.bootcamp.ivallavifahrazi_mealdb.model.ResponseDetailMeals
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

@@ -1,5 +1,6 @@
 package com.bootcamp.ivallavifahrazi_mealdb.ui
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,7 @@ import com.bootcamp.ivallavifahrazi_mealdb.model.MealsItem
 import com.bootcamp.ivallavifahrazi_mealdb.model.ResponseDetailMeals
 import com.bootcamp.ivallavifahrazi_mealdb.viewmodel.DetailViewModel
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +29,7 @@ import retrofit2.Response
 class DetailMealsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailMealsBinding
     private val detailViewModel by viewModels<DetailViewModel>()
-    private lateinit var menuDetail:DetailMealsItem
+    private lateinit var menuDetail:ResponseDetailMeals
 
     companion object{
         const val EXTRA_MEALS = "extra_meals"
@@ -64,6 +66,7 @@ class DetailMealsActivity : AppCompatActivity() {
                 is NetworkResult.Success -> {
                     val responseDetail = result.data
                     val detailMeals = responseDetail?.meals?.get(0)
+                    menuDetail =result.data!!
                     binding.apply {
                         tvJudul.text = detailMeals?.strMeal
                         tvArea.text = detailMeals?.strArea
@@ -75,18 +78,7 @@ class DetailMealsActivity : AppCompatActivity() {
                             .circleCrop()
                             .into(imgMeals)
                     }
-                    //Cek apakah udah fav atau blm, jika blm maka kode dibawah
-//                    binding.btnLove.setButtonDrawable(R.drawable.ic_notfavorite)
-                    //Cek apakah udah fav atau blm, jika suda maka kode dibawah
-                    //binding.setbtnlove(Favorit)
-//
-//                    binding.btnLove.setOnClickListener{
-//                        if(binding.btnLove.isChecked){
-//                            binding.btnLove.setButtonDrawable(R.drawable.ic_baseline_favorite_24)
-//                        } else {
-//                            binding.btnLove.setButtonDrawable(R.drawable.ic_notfavorite)
-//                        }
-//                    }
+
                     handleUi(
                         mealWrapper = true,
                         progressbar = false,
@@ -103,13 +95,18 @@ class DetailMealsActivity : AppCompatActivity() {
     private fun isFavoriteMeals(mealSelected : MealsItem){
         detailViewModel.favoriteMealList.observe(this){result ->
             val menu = result.find { fav ->
-                fav.meal.idMeal == mealSelected.idMeal
+                fav.meal.meals!![0]?.idMeal == mealSelected.idMeal
             }
             if(menu != null){
                 binding.btnLove.apply {
                     setButtonDrawable(R.drawable.ic_baseline_favorite_24)
                     setOnClickListener {
                         deleteFavoriteMeals(menu.id)
+                        val snackbar = Snackbar.make(binding.myCoordinatorLayout, "Success Remove from Favorite", Snackbar.LENGTH_SHORT)
+                        snackbar.setAction("Undo") {
+                            insertFavoriteMeals()
+                        }
+                        snackbar.show()
                     }
                 }
             }else{
@@ -117,6 +114,8 @@ class DetailMealsActivity : AppCompatActivity() {
                     setButtonDrawable(R.drawable.ic_notfavorite)
                     setOnClickListener {
                         insertFavoriteMeals()
+                        val snackbar = Snackbar.make(binding.myCoordinatorLayout, "Success Adding to Favorite", Snackbar.LENGTH_SHORT)
+                        snackbar.show()
                     }
                 }
             }
@@ -125,14 +124,17 @@ class DetailMealsActivity : AppCompatActivity() {
     private fun deleteFavoriteMeals(mealEntityId: Int){
         val mealEntity = MealEntity(id = mealEntityId, meal = menuDetail)
         detailViewModel.deleteFavoriteMeal(mealEntity)
-        Toast.makeText(this, "Successfully remove to favorite", Toast.LENGTH_SHORT).show()
+
     }
 
     private fun insertFavoriteMeals(){
         val mealEntity =MealEntity(meal = menuDetail)
         detailViewModel.insertFavoriteMeal(mealEntity)
-        Toast.makeText(this, "Successfully added to favorite", Toast.LENGTH_SHORT).show()
+
     }
+
+
+
     private fun handleUi(
         mealWrapper: Boolean,
         progressbar: Boolean,

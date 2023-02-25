@@ -14,5 +14,5 @@ import kotlinx.parcelize.Parcelize
 data class MealEntity (
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val meal:DetailMealsItem
+    val meal:ResponseDetailMeals
     ):Parcelable

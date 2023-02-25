@@ -1,11 +1,15 @@
 package com.bootcamp.ivallavifahrazi_mealdb.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bootcamp.ivallavifahrazi_mealdb.R
 import com.bootcamp.ivallavifahrazi_mealdb.adapter.MealsAdapter
 import com.bootcamp.ivallavifahrazi_mealdb.api.ApiConfig
 import com.bootcamp.ivallavifahrazi_mealdb.data.network.handler.NetworkResult
@@ -26,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Ivallavi Fahrazi"
+        supportActionBar?.title = "Yummeals!"
 
         mainViewModel.mealsList.observe(this@MainActivity){res ->
             when(res){
@@ -55,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     binding.recipeSize.text = res.data.meals.size.toString() + " Recipes found"
 
+
                     handleUi(
                         recyclerView = true,
                         progressbar = false,
@@ -65,6 +70,20 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.bar_item, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if(id == R.id.action_favorite){
+            val intent = Intent(this@MainActivity, FavoriteActivity::class.java)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun handleUi(

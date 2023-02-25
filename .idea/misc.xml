@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1235" />
         <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1235" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_baseline_set_meal_24.xml" value="0.1" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_notfavorite.xml" value="0.1235" />
         <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/toggle_button_selector.xml" value="0.1235" />
         <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/togglebutton_off.xml" value="0.184" />
@@ -14,7 +17,9 @@
         <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/activity_main.xml" value="0.2796610169491525" />
         <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/game_row_layout.xml" value="0.17074275362318841" />
         <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/item_row_meals.xml" value="0.33" />
-        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/menu_row_layout.xml" value="0.5" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/menu_row_layout.xml" value="0.33" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/toobar.xml" value="0.17074275362318841" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/menu/bar_item.xml" value="0.20833333333333334" />
       </map>
     </option>
   </component>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1235" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1235" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/ic_notfavorite.xml" value="0.1235" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/toggle_button_selector.xml" value="0.1235" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/togglebutton_off.xml" value="0.184" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/drawable/togglebutton_on.xml" value="0.184" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/activity_detail_meals.xml" value="0.25" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/activity_favorite.xml" value="0.209375" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/activity_main.xml" value="0.2796610169491525" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/game_row_layout.xml" value="0.17074275362318841" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/item_row_meals.xml" value="0.33" />
+        <entry key="..\:/IDN_ID/ivallavifahrazi_mealdb/app/src/main/res/layout/menu_row_layout.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

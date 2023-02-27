@@ -8,12 +8,12 @@ interface MealDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMeal(mealsEntity: MealEntity)
 
-    @Query("SELECT * FROM meal_table ORDER BY id ASC")
+    @Query("SELECT * FROM seafood_meal ORDER BY id ASC")
     fun listMeals(): Flow<List<MealEntity>>
 
     @Delete()
     suspend fun deleteMeal(mealsEntity: MealEntity)
 
-    @Query("DELETE FROM meal_table")
+    @Query("DELETE FROM seafood_meal")
     suspend fun deleteAllMeals()
 }

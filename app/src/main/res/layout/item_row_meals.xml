@@ -41,16 +41,27 @@
         android:textSize="20sp"
         android:textStyle="normal" />
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/seafood"
+        android:layout_below="@+id/cv_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColor="@color/gold"
-        android:layout_below="@id/cv_img"
-        android:text="Seafood"
-        android:textSize="10sp"
-        android:padding="1dp"/>
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="10dp"
+        app:strokeColor="@color/gold"
+        app:strokeWidth="1dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:textColor="@color/gold"
+            android:text="&#127844; Seafood"
+            android:textSize="10sp"
+            android:padding="3dp"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
 

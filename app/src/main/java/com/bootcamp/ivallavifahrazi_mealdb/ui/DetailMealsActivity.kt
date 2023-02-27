@@ -119,6 +119,7 @@ class DetailMealsActivity : AppCompatActivity() {
                     }
                 }
             }
+            return@observe
         }
     }
     private fun deleteFavoriteMeals(mealEntityId: Int){

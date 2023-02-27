@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bootcamp.ivallavifahrazi_mealdb.R
 import com.bootcamp.ivallavifahrazi_mealdb.adapter.FavoriteMealsAdapter
+import com.bootcamp.ivallavifahrazi_mealdb.data.database.MealEntity
 import com.bootcamp.ivallavifahrazi_mealdb.databinding.ActivityFavoriteBinding
 import com.bootcamp.ivallavifahrazi_mealdb.viewmodel.DetailViewModel
 import com.bootcamp.ivallavifahrazi_mealdb.viewmodel.FavoriteViewModel
@@ -39,9 +40,17 @@ class FavoriteActivity : AppCompatActivity() {
                 }
                 favoriteGameAdapter.apply {
                     setData(result)
+                    setOnItemCallback(object : FavoriteMealsAdapter.IOnFavoriteItemCallBack{
+                        override fun onFavoriteItemClickCallback(data: MealEntity) {
+                            val intent =Intent(this@FavoriteActivity, DetailFavoriteActivity::class.java)
+                            intent.putExtra(DetailFavoriteActivity.EXTRA_DETAIL, data)
+                            startActivity(intent)
+                        }
+
+                    })
                 }
-                return@observe
             }
+            return@observe
         }
     }
 

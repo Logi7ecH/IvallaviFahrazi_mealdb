@@ -18,26 +18,7 @@
         android:textSize="15dp"/>
 
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/item_name_menu"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        app:cardCornerRadius="10dp"
-        app:strokeColor="@color/gold"
-        app:strokeWidth="1dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:textColor="@color/gold"
-            android:text="&#127844; Seafood"
-            android:textSize="10sp"
-            android:padding="3dp"/>
 
-    </com.google.android.material.card.MaterialCardView>
     <TextView
         android:id="@+id/recipe_size"
         android:layout_width="match_parent"

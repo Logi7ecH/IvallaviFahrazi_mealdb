@@ -1,21 +1,23 @@
 package com.bootcamp.ivallavifahrazi_mealdb.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.ivallavifahrazi_mealdb.R
 import com.bootcamp.ivallavifahrazi_mealdb.data.database.MealEntity
 import com.bootcamp.ivallavifahrazi_mealdb.databinding.MenuRowLayoutBinding
+import com.bootcamp.ivallavifahrazi_mealdb.ui.DetailFavoriteActivity
 import com.bootcamp.ivallavifahrazi_mealdb.viewmodel.DetailViewModel
 import com.bootcamp.ivallavifahrazi_mealdb.viewmodel.FavoriteViewModel
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 
 class FavoriteMealsAdapter(private val Meals : FavoriteViewModel):RecyclerView.Adapter<FavoriteMealsAdapter.FavoriteViewHolder>() {
-
     private val diffCallBack = object : DiffUtil.ItemCallback<MealEntity>(){
         override fun areItemsTheSame(oldItem: MealEntity, newItem: MealEntity): Boolean {
             return oldItem.id == newItem.id
@@ -27,6 +29,8 @@ class FavoriteMealsAdapter(private val Meals : FavoriteViewModel):RecyclerView.A
     }
 
     private val differ =AsyncListDiffer(this, diffCallBack)
+    private lateinit var onFavoriteItemCallBack: IOnFavoriteItemCallBack
+
 
     inner class FavoriteViewHolder(view: View): RecyclerView.ViewHolder(view) {
         private val binding = MenuRowLayoutBinding.bind(view)
@@ -39,10 +43,14 @@ class FavoriteMealsAdapter(private val Meals : FavoriteViewModel):RecyclerView.A
                     .error(R.drawable.ic_launcher_background)
                     .circleCrop()
                     .into(itemImageMenu)
+                mealDetail = meal.meal
             }
             binding.btnDelete.setOnClickListener {
                 Meals.deleteFavoriteMeals(meal)
+            }
 
+            binding.btnDetail.setOnClickListener {
+                onFavoriteItemCallBack.onFavoriteItemClickCallback(meal)
             }
         }
     }
@@ -62,7 +70,12 @@ class FavoriteMealsAdapter(private val Meals : FavoriteViewModel):RecyclerView.A
     fun setData(data: List<MealEntity>){
         differ.submitList(data)
     }
-
+    fun setOnItemCallback(action: IOnFavoriteItemCallBack){
+        this.onFavoriteItemCallBack = action
+    }
+    interface IOnFavoriteItemCallBack {
+        fun onFavoriteItemClickCallback(data: MealEntity)
+    }
 }
 
 

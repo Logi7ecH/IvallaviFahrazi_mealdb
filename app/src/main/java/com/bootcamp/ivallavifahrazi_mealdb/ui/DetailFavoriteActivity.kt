@@ -30,6 +30,7 @@ class DetailFavoriteActivity : AppCompatActivity() {
         binding.btnDelete.setOnClickListener {
             deleteFavoriteMeals(detailFavoriteMeals!!)
             val intent = Intent(this, FavoriteActivity::class.java)
+
             startActivity(intent)
             finish()
         }

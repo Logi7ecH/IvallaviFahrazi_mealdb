@@ -115,6 +115,12 @@ class DetailMealsActivity : AppCompatActivity() {
                     setOnClickListener {
                         insertFavoriteMeals()
                         val snackbar = Snackbar.make(binding.myCoordinatorLayout, "Success Adding to Favorite", Snackbar.LENGTH_SHORT)
+                        snackbar.setAction("Go To Favorite"){
+                            val intent = Intent(this@DetailMealsActivity, FavoriteActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                            startActivity(intent)
+                            finish()
+                        }
                         snackbar.show()
                     }
                 }
